@@ -1,25 +1,30 @@
 import React from "react";
-import { AppBar, Toolbar, Typography,  Box, Chip } from "@mui/material";
 import { Link } from "react-router-dom";
 
 const Navbar = ({ cartCount }) => {
   return (
-    <AppBar position="fixed" >
-      <Toolbar sx={{justifyContent: "space-between"}}>
-        <Typography variant="h6" sx={{  }}>
-          JoCart
-        </Typography>
+    <nav className="fixed top-0 left-0 w-full bg-[#1976d2] py-1.5 shadow-md z-50">
+      <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+      
+        <h3 className="text-white text-xl font-semibold">JoCart</h3>
 
-        <Box sx={{display: "flex", gap:"15px" }} className="link_tag">
-          <Chip sx={{cursor:"pointer"}} className="link-chip" component={Link} to="/" label="Products">
-            
-          </Chip>
-          <Chip sx={{cursor:"pointer"}} className="link-chip" component={Link} to="/cart" label="Cart">
-             ({cartCount})
-          </Chip>
-        </Box>
-      </Toolbar>
-    </AppBar>
+    
+        <div className="flex gap-4">
+          <Link
+            to="/"
+            className="bg-white text-blue-600 px-3 py-1 text-sm rounded-full hover:bg-gray-100 transition"
+          >
+            Products
+          </Link>
+          <Link
+            to="/cart"
+            className="bg-white text-blue-600 px-3 py-1 text-sm rounded-full hover:bg-gray-100 transition flex items-center gap-1"
+          >
+            Cart <span>({cartCount})</span>
+          </Link>
+        </div>
+      </div>
+    </nav>
   );
 };
 
